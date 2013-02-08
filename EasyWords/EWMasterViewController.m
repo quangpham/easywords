@@ -7,8 +7,6 @@
 //
 
 #import "EWMasterViewController.h"
-#import "EWDetailViewController.h"
-
 #import <Parse/Parse.h>
 
 @interface EWMasterViewController () {
@@ -52,7 +50,13 @@
     
     // QUANG
     PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
-    [testObject setObject:@"bar" forKey:@"foo"];
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSString *datestring=[dateFormatter stringFromDate:[NSDate date]];
+    
+    [testObject setObject:datestring forKey:@"text"];
+    [testObject setObject:[NSDate date] forKey:@"date"];
     [testObject save];
 }
 
@@ -109,13 +113,17 @@
 }
 */
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([[segue identifier] isEqualToString:@"showDetail"]) {
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSDate *object = _objects[indexPath.row];
-        [[segue destinationViewController] setDetailItem:object];
-    }
+
+- (IBAction)buttonTapped:(id)sender {
+    PFQueryTableViewController *tableController = [[PFQueryTableViewController alloc] initWithClassName:@"TestObject"];
+    [self.navigationController pushViewController:tableController animated:YES];
+    //[self presentViewController:tableController animated:YES completion:nil];
 }
 
+- (IBAction)button2Tapped:(id)sender {
+    UIViewController *vcToGo = nil;
+    UIStoryboard *storyBoard = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] init];
+    vcToGo = [storyBoard instantiateViewControllerWithIdentifier:@"EWEmptyViewController"];
+    [self.navigationController pushViewController:vcToGo animated:YES];
+}
 @end

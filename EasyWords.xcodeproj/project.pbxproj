@@ -18,7 +18,6 @@
 		3005C21F16C527BC00117B19 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3005C21E16C527BC00117B19 /* Default-568h@2x.png */; };
 		3005C22216C527BC00117B19 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3005C22016C527BC00117B19 /* MainStoryboard.storyboard */; };
 		3005C22516C527BC00117B19 /* EWMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3005C22416C527BC00117B19 /* EWMasterViewController.m */; };
-		3005C22816C527BC00117B19 /* EWDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3005C22716C527BC00117B19 /* EWDetailViewController.m */; };
 		3005C22F16C5280300117B19 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3005C22E16C5280300117B19 /* Parse.framework */; };
 		3005C23216C5283A00117B19 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3005C23016C5281F00117B19 /* AudioToolbox.framework */; };
 		3005C23416C5284800117B19 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3005C23316C5284800117B19 /* Accounts.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -33,6 +32,7 @@
 		3005C24616C528A900117B19 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3005C24516C528A900117B19 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		3005C24816C528AE00117B19 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3005C24716C528AE00117B19 /* StoreKit.framework */; };
 		3005C24A16C528B500117B19 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3005C24916C528B500117B19 /* SystemConfiguration.framework */; };
+		3005C25316C53E0A00117B19 /* EWEmptyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3005C25216C53E0A00117B19 /* EWEmptyViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,8 +52,6 @@
 		3005C22116C527BC00117B19 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		3005C22316C527BC00117B19 /* EWMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EWMasterViewController.h; sourceTree = "<group>"; };
 		3005C22416C527BC00117B19 /* EWMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EWMasterViewController.m; sourceTree = "<group>"; };
-		3005C22616C527BC00117B19 /* EWDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EWDetailViewController.h; sourceTree = "<group>"; };
-		3005C22716C527BC00117B19 /* EWDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EWDetailViewController.m; sourceTree = "<group>"; };
 		3005C22E16C5280300117B19 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		3005C23016C5281F00117B19 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		3005C23316C5284800117B19 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
@@ -68,6 +66,8 @@
 		3005C24516C528A900117B19 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		3005C24716C528AE00117B19 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		3005C24916C528B500117B19 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		3005C25116C53E0A00117B19 /* EWEmptyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EWEmptyViewController.h; sourceTree = "<group>"; };
+		3005C25216C53E0A00117B19 /* EWEmptyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EWEmptyViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +104,7 @@
 				3005C20E16C527BB00117B19 /* EasyWords */,
 				3005C20716C527BB00117B19 /* Frameworks */,
 				3005C20516C527BB00117B19 /* Products */,
+				3005C20F16C527BB00117B19 /* Supporting Files */,
 			);
 			sourceTree = "<group>";
 		};
@@ -147,9 +148,8 @@
 				3005C22016C527BC00117B19 /* MainStoryboard.storyboard */,
 				3005C22316C527BC00117B19 /* EWMasterViewController.h */,
 				3005C22416C527BC00117B19 /* EWMasterViewController.m */,
-				3005C22616C527BC00117B19 /* EWDetailViewController.h */,
-				3005C22716C527BC00117B19 /* EWDetailViewController.m */,
-				3005C20F16C527BB00117B19 /* Supporting Files */,
+				3005C25116C53E0A00117B19 /* EWEmptyViewController.h */,
+				3005C25216C53E0A00117B19 /* EWEmptyViewController.m */,
 			);
 			path = EasyWords;
 			sourceTree = "<group>";
@@ -166,6 +166,7 @@
 				3005C21E16C527BC00117B19 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			path = EasyWords;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -238,7 +239,7 @@
 				3005C21516C527BB00117B19 /* main.m in Sources */,
 				3005C21916C527BC00117B19 /* EWAppDelegate.m in Sources */,
 				3005C22516C527BC00117B19 /* EWMasterViewController.m in Sources */,
-				3005C22816C527BC00117B19 /* EWDetailViewController.m in Sources */,
+				3005C25316C53E0A00117B19 /* EWEmptyViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
