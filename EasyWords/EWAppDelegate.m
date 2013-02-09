@@ -19,10 +19,10 @@
                   clientKey:@"R4eGn5RJrLl1iRiItBbUUToZLLJWafTqdRiufMmZ"];
     
     
-    [PFFacebookUtils initializeWithApplicationId:@"101064763411885"];
+    //[PFFacebookUtils initializeWithApplicationId:@"101064763411885"];
     
     /* MANUAL USER */
-    /*PFUser *user = [PFUser user];
+    PFUser *user = [PFUser user];
     user.username = @"Hung";
     user.password = @"password";
     user.email = @"hung@example.com";
@@ -32,7 +32,7 @@
         } else {
             [PFUser logInWithUsername:@"Hung" password:@"password"];
         }
-    }];*/
+    }];
     
     return YES;
 }

@@ -31,10 +31,10 @@
         self.pullToRefreshEnabled = YES;
         
         // Whether the built-in pagination is enabled
-        self.paginationEnabled = YES;
+        //self.paginationEnabled = YES;
         
         // The number of objects to show per page
-        self.objectsPerPage = 5;
+        //self.objectsPerPage = 5;
     }
     return self;
 }
@@ -141,7 +141,7 @@
     }
     
     // Configure the cell
-    cell.textLabel.text = [object objectForKey:@"text"];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", [object objectForKey:@"firstname"], [object objectForKey:@"lastname"]];
     //cell.detailTextLabel.text = [NSString stringWithFormat:@"Priority: %@", [object objectForKey:@"priority"]];
     
     return cell;

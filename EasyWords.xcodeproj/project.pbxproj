@@ -33,6 +33,7 @@
 		3005C24816C528AE00117B19 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3005C24716C528AE00117B19 /* StoreKit.framework */; };
 		3005C24A16C528B500117B19 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3005C24916C528B500117B19 /* SystemConfiguration.framework */; };
 		3005C25316C53E0A00117B19 /* EWEmptyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3005C25216C53E0A00117B19 /* EWEmptyViewController.m */; };
+		30A246E916C668F8006D6D87 /* EWInsertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A246E816C668F8006D6D87 /* EWInsertViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +69,8 @@
 		3005C24916C528B500117B19 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		3005C25116C53E0A00117B19 /* EWEmptyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EWEmptyViewController.h; sourceTree = "<group>"; };
 		3005C25216C53E0A00117B19 /* EWEmptyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EWEmptyViewController.m; sourceTree = "<group>"; };
+		30A246E716C668F8006D6D87 /* EWInsertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EWInsertViewController.h; sourceTree = "<group>"; };
+		30A246E816C668F8006D6D87 /* EWInsertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EWInsertViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +153,8 @@
 				3005C22416C527BC00117B19 /* EWMasterViewController.m */,
 				3005C25116C53E0A00117B19 /* EWEmptyViewController.h */,
 				3005C25216C53E0A00117B19 /* EWEmptyViewController.m */,
+				30A246E716C668F8006D6D87 /* EWInsertViewController.h */,
+				30A246E816C668F8006D6D87 /* EWInsertViewController.m */,
 			);
 			path = EasyWords;
 			sourceTree = "<group>";
@@ -240,6 +245,7 @@
 				3005C21916C527BC00117B19 /* EWAppDelegate.m in Sources */,
 				3005C22516C527BC00117B19 /* EWMasterViewController.m in Sources */,
 				3005C25316C53E0A00117B19 /* EWEmptyViewController.m in Sources */,
+				30A246E916C668F8006D6D87 /* EWInsertViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

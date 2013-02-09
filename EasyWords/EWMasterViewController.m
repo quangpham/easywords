@@ -47,29 +47,11 @@
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     
-    
-    // QUANG
-    PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
-    
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-    NSString *datestring=[NSString stringWithFormat:@"%@ %@",[[PFUser currentUser] username] , [dateFormatter stringFromDate:[NSDate date]]];
-    
-    [testObject setObject: datestring forKey:@"text"];
-    [testObject setObject:[NSDate date] forKey:@"date"];
-    
-    
-    
-    // set object with user
-    [testObject setObject:[PFUser currentUser] forKey:@"author"];
-//    
-//    // ACL permissions
-    PFACL *acl = [PFACL ACLWithUser:[PFUser currentUser]];
-    [acl setPublicReadAccess:YES];
-    [testObject setACL:acl];
-    
-    //[testObject saveEventually];
-    [testObject save];
+
+    //self.storyboard
+    UIStoryboard *storyBoard = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] init];
+    UIViewController *vcToGo = [storyBoard instantiateViewControllerWithIdentifier:@"EWInsertViewController"];
+    [self.navigationController pushViewController:vcToGo animated:YES];
     
     
 //    // Create a new Post object and create relationship with PFUser
