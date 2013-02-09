@@ -67,6 +67,19 @@
     
     //[testObject saveEventually];
     //[testObject save];
+    
+    [testObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (!error) {
+            NSLog(@"Sucessful");
+            [self.navigationController popToRootViewControllerAnimated:YES];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"POST_SAVE_TESTOBJECT_SUCESSFUL" object:nil];
+             //[[NSNotificationCenter defaultCenter] postNotificationName:notificationName object:nil userInfo:dictionary];
+        } else {
+            NSLog(@"Not successful");
+        }
+    }];
+    
+    /*
     [testObject saveEventually:^(BOOL succeeded, NSError *error) {
         if (!error) {
             NSLog(@"Sucessful");
@@ -76,9 +89,8 @@
             NSLog(@"Not successful");
         }
     }];
+    */
     
-    [self dismissViewControllerAnimated:YES completion:nil];
-    [self.navigationController popToRootViewControllerAnimated:YES];
     
     
 }
