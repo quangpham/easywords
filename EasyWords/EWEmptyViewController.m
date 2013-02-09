@@ -45,6 +45,9 @@
 {
     [super viewDidLoad];
     
+    NSLog(@"QUANG ... user %@", [PFUser currentUser]);
+
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -113,13 +116,15 @@
 - (PFQuery *)queryForTable {
     PFQuery *query = [PFQuery queryWithClassName:self.className];
     
+    [query whereKey:@"author" equalTo:[PFUser currentUser]];
+    
     // If no objects are loaded in memory, we look to the cache first to fill the table
     // and then subsequently do a query against the network.
     if ([self.objects count] == 0) {
         query.cachePolicy = kPFCachePolicyCacheThenNetwork;
     }
     
-    [query orderByAscending:@"priority"];
+    //[query orderByAscending:@"priority"];
     
     return query;
 }
@@ -137,7 +142,7 @@
     
     // Configure the cell
     cell.textLabel.text = [object objectForKey:@"text"];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"Priority: %@", [object objectForKey:@"priority"]];
+    //cell.detailTextLabel.text = [NSString stringWithFormat:@"Priority: %@", [object objectForKey:@"priority"]];
     
     return cell;
 }

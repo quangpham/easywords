@@ -12,5 +12,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *buttonDidTapped;
 - (IBAction)buttonTapped:(id)sender;
 - (IBAction)button2Tapped:(id)sender;
+- (IBAction)fbLoginTapped:(id)sender;
 
 @end

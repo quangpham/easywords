@@ -53,11 +53,41 @@
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-    NSString *datestring=[dateFormatter stringFromDate:[NSDate date]];
+    NSString *datestring=[NSString stringWithFormat:@"%@ %@",[[PFUser currentUser] username] , [dateFormatter stringFromDate:[NSDate date]]];
     
-    [testObject setObject:datestring forKey:@"text"];
+    [testObject setObject: datestring forKey:@"text"];
     [testObject setObject:[NSDate date] forKey:@"date"];
+    
+    
+    
+    // set object with user
+    [testObject setObject:[PFUser currentUser] forKey:@"author"];
+//    
+//    // ACL permissions
+    PFACL *acl = [PFACL ACLWithUser:[PFUser currentUser]];
+    [acl setPublicReadAccess:YES];
+    [testObject setACL:acl];
+    
+    //[testObject saveEventually];
     [testObject save];
+    
+    
+//    // Create a new Post object and create relationship with PFUser
+//    PFObject *newPost = [PFObject objectWithClassName:@"Post"];
+//    [newPost setObject:[textView text] forKey:@"textContent"];
+//    [newPost setObject:[PFUser currentUser] forKey:@"author"]; // One-to-Many relationship created here!
+//    
+//    //Set ACL permissions for added security
+//    PFACL *postACL = [PFACL ACLWithUser:[PFUser currentUser]];
+//    [postACL setPublicReadAccess:YES];
+//    [newPost setACL:postACL];
+//    
+//    // Save new Post object in Parse
+//    [newPost saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//        if (!error) {
+//            [self dismissModalViewControllerAnimated:YES]; // Dismiss the viewController upon success
+//        }
+//    }];
 }
 
 #pragma mark - Table View
@@ -116,6 +146,7 @@
 
 - (IBAction)buttonTapped:(id)sender {
     PFQueryTableViewController *tableController = [[PFQueryTableViewController alloc] initWithClassName:@"TestObject"];
+    tableController.textKey = @"text";
     [self.navigationController pushViewController:tableController animated:YES];
     //[self presentViewController:tableController animated:YES completion:nil];
 }
@@ -125,5 +156,30 @@
     UIStoryboard *storyBoard = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] init];
     vcToGo = [storyBoard instantiateViewControllerWithIdentifier:@"EWEmptyViewController"];
     [self.navigationController pushViewController:vcToGo animated:YES];
+}
+
+- (IBAction)fbLoginTapped:(id)sender {
+    //NSArray *permissionsArray = @[ @"user_about_me", @"user_relationships", @"user_birthday", @"user_location"];
+    
+    // Login PFUser using Facebook
+//    [PFFacebookUtils logInWithPermissions:permissionsArray block:^(PFUser *user, NSError *error) {
+//        [_activityIndicator stopAnimating]; // Hide loading indicator
+//        
+//        if (!user) {
+//            if (!error) {
+//                NSLog(@"Uh oh. The user cancelled the Facebook login.");
+//            } else {
+//                NSLog(@"Uh oh. An error occurred: %@", error);
+//            }
+//        } else if (user.isNew) {
+//            NSLog(@"User with facebook signed up and logged in!");
+//            [self.navigationController pushViewController:[[UserDetailsViewController alloc] initWithStyle:UITableViewStyleGrouped] animated:YES];
+//        } else {
+//            NSLog(@"User with facebook logged in!");
+//            [self.navigationController pushViewController:[[UserDetailsViewController alloc] initWithStyle:UITableViewStyleGrouped] animated:YES];
+//        }
+//    }];
+    
+
 }
 @end
