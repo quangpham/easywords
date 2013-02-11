@@ -23,7 +23,7 @@
         // Custom the table
         
         // The className to query on
-        self.className = @"TestObject";
+        self.className = @"Person";
         
         // The key of the PFObject to display in the label of the default cell style
         self.textKey = @"text";
@@ -54,9 +54,7 @@
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTableData) name:@"POST_SAVE_TESTOBJECT_SUCESSFUL" object:nil];
-    
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTableData) name:@"POST_SAVE_PERSON_DATA_SUCESSFUL" object:nil];
 }
 
 - (void)reloadTableData
@@ -78,7 +76,6 @@
     UIStoryboard *storyBoard = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] init];
     UIViewController *vcToGo = [storyBoard instantiateViewControllerWithIdentifier:@"EWInsertViewController"];
     [self.navigationController pushViewController:vcToGo animated:YES];
-    
 }
 
 #pragma mark - Table View
@@ -140,7 +137,7 @@
 
 
 - (IBAction)buttonTapped:(id)sender {
-    PFQueryTableViewController *tableController = [[PFQueryTableViewController alloc] initWithClassName:@"TestObject"];
+    PFQueryTableViewController *tableController = [[PFQueryTableViewController alloc] initWithClassName:@"Person"];
     tableController.textKey = @"text";
     [self.navigationController pushViewController:tableController animated:YES];
     //[self presentViewController:tableController animated:YES completion:nil];
@@ -169,9 +166,7 @@
 - (PFQuery *)queryForTable {
     PFQuery *query = [PFQuery queryWithClassName:self.className];
     
-    /*
     [query whereKey:@"author" equalTo:[PFUser currentUser]];
-    */
     
     // If no objects are loaded in memory, we look to the cache first to fill the table
     // and then subsequently do a query against the network.

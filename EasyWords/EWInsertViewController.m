@@ -38,65 +38,31 @@
 
 - (IBAction)saveButtonDidTapped:(id)sender {
     // QUANG
-    PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
+    PFObject *person = [PFObject objectWithClassName:@"Person"];
     
-    /*
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-    NSString *datestring=[NSString stringWithFormat:@"%@ %@",[[PFUser currentUser] username] , [dateFormatter stringFromDate:[NSDate date]]];
+    [person setObject:self.firstNameText.text forKey:@"firstname"];
+    [person setObject:self.lastNameText.text forKey:@"lastname"];
     
-    [testObject setObject: datestring forKey:@"text"];
-    [testObject setObject:[NSDate date] forKey:@"date"];
-    
-    NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:@"number", @"number",
-                                @"asdad", @"string",
-                                nil];
-    
-    [testObject setObject:dictionary forKey:@"dictionary"];
-    */
-    
-    [testObject setObject:self.firstNameText.text forKey:@"firstname"];
-    [testObject setObject:self.lastNameText.text forKey:@"lastname"];
-    
-    
-    /*
     // set object with user
-    [testObject setObject:[PFUser currentUser] forKey:@"author"];
-    //
-    //    // ACL permissions
+    [person setObject:[PFUser currentUser] forKey:@"author"];
+    
+    // ACL permissions
     PFACL *acl = [PFACL ACLWithUser:[PFUser currentUser]];
     [acl setPublicReadAccess:YES];
-    [testObject setACL:acl];
+    [person setACL:acl];
      
-     */
-    
-    //[testObject saveEventually];
-    //[testObject save];
-    
-    [testObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+    [person saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (!error) {
             NSLog(@"Sucessful");
             [self.navigationController popToRootViewControllerAnimated:YES];
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"POST_SAVE_TESTOBJECT_SUCESSFUL" object:nil];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"POST_SAVE_PERSON_DATA_SUCESSFUL" object:nil];
              //[[NSNotificationCenter defaultCenter] postNotificationName:notificationName object:nil userInfo:dictionary];
         } else {
             NSLog(@"Not successful");
         }
     }];
     
-    /*
-    [testObject saveEventually:^(BOOL succeeded, NSError *error) {
-        if (!error) {
-            NSLog(@"Sucessful");
-            //[self dismissViewControllerAnimated:YES completion:nil];
-        
-        } else {
-            NSLog(@"Not successful");
-        }
-    }];
-    */
-    
-    
-    
+    //[person saveEventually];
+    //[person save];
 }
 @end
