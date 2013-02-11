@@ -108,12 +108,14 @@
     HUD = nil;
 }
 - (IBAction)pickPhotoButtonDidTapped:(id)sender {
+    
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera] == YES) {
         // Create image picker controller
         UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
         
         // Set source to the camera
-        imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        //imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        imagePicker.sourceType =  UIImagePickerControllerSourceTypeSavedPhotosAlbum;
         
         // Delegate is self
         imagePicker.delegate = self;
