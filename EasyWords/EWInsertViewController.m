@@ -50,7 +50,15 @@
     PFACL *acl = [PFACL ACLWithUser:[PFUser currentUser]];
     [acl setPublicReadAccess:YES];
     [person setACL:acl];
-     
+    
+    
+    // Image
+    UIImage *image = [UIImage imageNamed:@"1.jpg"];    
+    NSData *imageData = UIImageJPEGRepresentation(image, 0.05f);
+    PFFile *imageFile = [PFFile fileWithName:@"1.jpg" data:imageData];
+    [person setObject:imageFile forKey:@"imageFile"];
+
+    // Save data
     [person saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (!error) {
             NSLog(@"Sucessful");

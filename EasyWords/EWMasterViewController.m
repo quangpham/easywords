@@ -9,6 +9,7 @@
 #import "EWMasterViewController.h"
 #import <Parse/Parse.h>
 
+
 @interface EWMasterViewController () {
     NSMutableArray *_objects;
 }
@@ -62,6 +63,11 @@
     //[self.tableView reloadData];
     NSLog(@"reloadTableData");
     [self loadObjects];
+}
+
+- (void)uploadRandomImage
+{
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -191,6 +197,12 @@
     
     // Configure the cell
     cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", [object objectForKey:@"firstname"], [object objectForKey:@"lastname"]];
+    
+    // Display image
+    PFFile *imageFile = [object objectForKey:@"imageFile"];
+    NSData *imageData = [imageFile getData];
+    cell.imageView.image = [UIImage imageWithData:imageData];
+    
     //cell.detailTextLabel.text = [NSString stringWithFormat:@"Priority: %@", [object objectForKey:@"priority"]];
     
     return cell;
