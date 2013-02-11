@@ -15,6 +15,7 @@
 
 @implementation EWInsertViewController
 
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -29,6 +30,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
 }
+
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -53,8 +56,7 @@
     
     
     // Save Image Data
-    UIImage *rawImage = [UIImage imageNamed:@"1.jpg"];
-    UIImage *image = [self imageWithImage:rawImage scaledToSize:CGSizeMake(120., 120.)];
+    UIImage *image = [self imageWithImage:self.userImage.image scaledToSize:CGSizeMake(150, 150)];
     NSData *imageData = UIImageJPEGRepresentation(image, 1.0);
     PFFile *imageFile = [PFFile fileWithName:@"1.jpg" data:imageData];
     [person setObject:imageFile forKey:@"imageFile"];
@@ -103,7 +105,37 @@
 - (void)hudWasHidden:(MBProgressHUD *)hud
 {
     [HUD removeFromSuperview];
-    HUD
-    = nil;
+    HUD = nil;
 }
+- (IBAction)pickPhotoButtonDidTapped:(id)sender {
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera] == YES) {
+        // Create image picker controller
+        UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+        
+        // Set source to the camera
+        imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        
+        // Delegate is self
+        imagePicker.delegate = self;
+        
+        // Show image picker
+        //[self presentModalViewController:imagePicker animated:YES];
+        [self presentViewController:imagePicker animated:YES completion:nil];
+    }
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    self.userImage.image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+    
+    // Dismiss controller
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark -
 @end

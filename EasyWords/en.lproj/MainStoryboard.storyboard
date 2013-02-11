@@ -132,14 +132,26 @@
                                     <action selector="saveButtonDidTapped:" destination="Gt0-8c-OJD" eventType="touchUpInside" id="gif-eX-gDP"/>
                                 </connections>
                             </button>
+                            <imageView contentMode="scaleToFill" image="1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="r6h-gi-SOK">
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="1wR-v0-Mwy"/>
+                                    <constraint firstAttribute="width" constant="128" id="HMQ-OE-bRg"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="ASR-JX-Z6A" appends="YES" id="yJO-Rb-L25"/>
+                                </connections>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="aMv-Xm-fiY" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="0XD-HP-poc"/>
+                            <constraint firstAttribute="bottom" secondItem="I8B-M6-kfq" secondAttribute="bottom" constant="180" id="2ph-gA-1DX"/>
+                            <constraint firstItem="r6h-gi-SOK" firstAttribute="top" secondItem="JYm-ys-OqZ" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="3Ku-7H-J64"/>
                             <constraint firstItem="I8B-M6-kfq" firstAttribute="leading" secondItem="fN7-oR-mBI" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="GM0-0Q-w4r"/>
                             <constraint firstItem="aMv-Xm-fiY" firstAttribute="leading" secondItem="fN7-oR-mBI" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="H49-Sg-R7T"/>
+                            <constraint firstItem="r6h-gi-SOK" firstAttribute="centerX" secondItem="JYm-ys-OqZ" secondAttribute="centerX" type="default" id="Hu4-Pv-jR0"/>
                             <constraint firstItem="aMv-Xm-fiY" firstAttribute="top" secondItem="fN7-oR-mBI" secondAttribute="top" constant="20" symbolic="YES" type="default" id="IWN-B8-Pmz"/>
-                            <constraint firstItem="I8B-M6-kfq" firstAttribute="top" secondItem="fN7-oR-mBI" secondAttribute="top" constant="103" id="Nxv-pZ-cCw"/>
                             <constraint firstAttribute="trailing" secondItem="JYm-ys-OqZ" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="f4Y-h9-V7U"/>
                             <constraint firstItem="JYm-ys-OqZ" firstAttribute="leading" secondItem="fN7-oR-mBI" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="fKa-Xf-msQ"/>
                             <constraint firstItem="JYm-ys-OqZ" firstAttribute="top" secondItem="aMv-Xm-fiY" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="mME-ym-zkj"/>
@@ -150,14 +162,34 @@
                     <connections>
                         <outlet property="firstNameText" destination="aMv-Xm-fiY" id="UsT-Ri-dAP"/>
                         <outlet property="lastNameText" destination="JYm-ys-OqZ" id="bgL-pZ-XXv"/>
+                        <outlet property="userImage" destination="r6h-gi-SOK" id="Vpq-ob-rF0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WKs-ZS-qiC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="ASR-JX-Z6A">
+                    <connections>
+                        <action selector="pickPhotoButtonDidTapped:" destination="Gt0-8c-OJD" id="ope-b3-fhb"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="873" y="64"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="1.jpg" width="960" height="720"/>
+    </resources>
     <classes>
+        <class className="EWInsertViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EWInsertViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="pickPhotoButtonDidTapped:"/>
+                <relationship kind="action" name="saveButtonDidTapped:"/>
+                <relationship kind="outlet" name="firstNameText" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="lastNameText" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="pickPhotoButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="userImage" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
         <class className="EWMasterViewController" superclassName="PFQueryTableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/EWMasterViewController.h"/>
             <relationships>
