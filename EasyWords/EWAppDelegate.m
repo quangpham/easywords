@@ -22,6 +22,8 @@
     //[PFFacebookUtils initializeWithApplicationId:@"101064763411885"];
     
     /* MANUAL USER */
+    
+    /*
     PFUser *user = [PFUser user];
     user.username = @"Hung";
     user.password = @"password";
@@ -33,18 +35,11 @@
             [PFUser logInWithUsername:@"Hung" password:@"password"];
         }
     }];
+    */
     
     return YES;
 }
 
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
-  sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-    return [PFFacebookUtils handleOpenURL:url];
-}
-
-- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
-    return [PFFacebookUtils handleOpenURL:url];
-}
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {

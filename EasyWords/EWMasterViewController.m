@@ -147,28 +147,6 @@
 }
 
 - (IBAction)fbLoginTapped:(id)sender {
-    //NSArray *permissionsArray = @[ @"user_about_me", @"user_relationships", @"user_birthday", @"user_location"];
-    
-    // Login PFUser using Facebook
-//    [PFFacebookUtils logInWithPermissions:permissionsArray block:^(PFUser *user, NSError *error) {
-//        [_activityIndicator stopAnimating]; // Hide loading indicator
-//        
-//        if (!user) {
-//            if (!error) {
-//                NSLog(@"Uh oh. The user cancelled the Facebook login.");
-//            } else {
-//                NSLog(@"Uh oh. An error occurred: %@", error);
-//            }
-//        } else if (user.isNew) {
-//            NSLog(@"User with facebook signed up and logged in!");
-//            [self.navigationController pushViewController:[[UserDetailsViewController alloc] initWithStyle:UITableViewStyleGrouped] animated:YES];
-//        } else {
-//            NSLog(@"User with facebook logged in!");
-//            [self.navigationController pushViewController:[[UserDetailsViewController alloc] initWithStyle:UITableViewStyleGrouped] animated:YES];
-//        }
-//    }];
-    
-
 }
 
 #pragma mark - Parse
@@ -191,7 +169,9 @@
 - (PFQuery *)queryForTable {
     PFQuery *query = [PFQuery queryWithClassName:self.className];
     
+    /*
     [query whereKey:@"author" equalTo:[PFUser currentUser]];
+    */
     
     // If no objects are loaded in memory, we look to the cache first to fill the table
     // and then subsequently do a query against the network.

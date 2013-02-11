@@ -40,6 +40,7 @@
     // QUANG
     PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
     
+    /*
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     NSString *datestring=[NSString stringWithFormat:@"%@ %@",[[PFUser currentUser] username] , [dateFormatter stringFromDate:[NSDate date]]];
@@ -52,11 +53,13 @@
                                 nil];
     
     [testObject setObject:dictionary forKey:@"dictionary"];
+    */
     
     [testObject setObject:self.firstNameText.text forKey:@"firstname"];
     [testObject setObject:self.lastNameText.text forKey:@"lastname"];
     
     
+    /*
     // set object with user
     [testObject setObject:[PFUser currentUser] forKey:@"author"];
     //
@@ -64,6 +67,8 @@
     PFACL *acl = [PFACL ACLWithUser:[PFUser currentUser]];
     [acl setPublicReadAccess:YES];
     [testObject setACL:acl];
+     
+     */
     
     //[testObject saveEventually];
     //[testObject save];
