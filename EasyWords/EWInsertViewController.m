@@ -52,16 +52,32 @@
     [person setACL:acl];
     
     
-    // Image
-    UIImage *image = [UIImage imageNamed:@"1.jpg"];    
-    NSData *imageData = UIImageJPEGRepresentation(image, 0.05f);
+    // Save Image Data
+    UIImage *rawImage = [UIImage imageNamed:@"1.jpg"];
+    UIImage *image = [self imageWithImage:rawImage scaledToSize:CGSizeMake(120., 120.)];
+    NSData *imageData = UIImageJPEGRepresentation(image, 1.0);
     PFFile *imageFile = [PFFile fileWithName:@"1.jpg" data:imageData];
     [person setObject:imageFile forKey:@"imageFile"];
-
+    
+    HUD = [[MBProgressHUD alloc] initWithView:self.view];
+    [self.view addSubview:HUD];
+    // HUD.mode = MBProgressHUDModeIndeterminate;
+    HUD.mode = MBProgressHUDModeDeterminate;
+    HUD.delegate = self;
+    HUD.labelText = @"Uploading ...";
+    [HUD show:YES];
+    
+    [imageFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        NSLog(@"Sucessful");
+        [HUD hide:YES];
+    } progressBlock:^(int percentDone) {
+        HUD.progress = (float)percentDone/100;
+    }];
+    
+    
     // Save data
     [person saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (!error) {
-            NSLog(@"Sucessful");
             [self.navigationController popToRootViewControllerAnimated:YES];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"POST_SAVE_PERSON_DATA_SUCESSFUL" object:nil];
              //[[NSNotificationCenter defaultCenter] postNotificationName:notificationName object:nil userInfo:dictionary];
@@ -72,5 +88,22 @@
     
     //[person saveEventually];
     //[person save];
+}
+
+- (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize {
+    //UIGraphicsBeginImageContext(newSize);
+    UIGraphicsBeginImageContextWithOptions(newSize, NO, 0.0);
+    [image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
+}
+
+#pragma mark - HUB implementation
+- (void)hudWasHidden:(MBProgressHUD *)hud
+{
+    [HUD removeFromSuperview];
+    HUD
+    = nil;
 }
 @end
