@@ -61,8 +61,12 @@
     //NSLog(@"Json data %@", reponseString);
     
     if (![reponseString isEqualToString:@""]) {
+        NSDictionary *data = [self rewriteGoogleTranslateResult:reponseString];
         
-        [self saveTranslationToParse:keyword dictType:[NSString stringWithFormat:@"%@_%@", from, to] translation:[self rewriteGoogleTranslateResult:reponseString]];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:keyword message:[NSString stringWithFormat:@"%@", data] delegate:nil cancelButtonTitle:@"Okie" otherButtonTitles:nil];
+        [alert show];
+        
+        [self saveTranslationToParse:keyword dictType:[NSString stringWithFormat:@"%@_%@", from, to] translation:data];
     }
 }
 
@@ -71,6 +75,7 @@
     PFQuery *query = [PFQuery queryWithClassName:@"Vocabulary"];
     [query whereKey:@"dict_type" equalTo:dictType];
     [query whereKey:@"keyword" equalTo:keyword];
+    [query whereKey:@"author" equalTo:[PFUser currentUser]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {            
             if (objects.count == 0) {
@@ -79,7 +84,7 @@
                 [word setObject:dictType forKey:@"dict_type"];
                 [word setObject:translation forKey:@"translation"];
                 [word setObject:[NSNumber numberWithInteger:1] forKey:@"score"];
-                /*
+                
                  // set object with user
                  [word setObject:[PFUser currentUser] forKey:@"author"];
                  
@@ -87,7 +92,7 @@
                  PFACL *acl = [PFACL ACLWithUser:[PFUser currentUser]];
                  [acl setPublicReadAccess:YES];
                  [word setACL:acl];
-                 */
+                 
                 [word saveInBackground];
             } else {
                 PFObject *currentObject = (PFObject*)[objects lastObject];

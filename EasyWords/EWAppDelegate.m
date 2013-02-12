@@ -23,11 +23,14 @@
     
     //[PFFacebookUtils initializeWithApplicationId:@"101064763411885"];
     
-    self.isTestUser = NO;
+    /*
+     self.isTestUser = YES;
     
     if (self.isTestUser) {
         [self createFakeUser];
     }
+     */
+    [self createFakeUser];
     
     return YES;
 }
