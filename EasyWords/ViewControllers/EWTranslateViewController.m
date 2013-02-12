@@ -50,54 +50,33 @@
         self.isJavascriptInjected = YES;
     }
     
-    
-    NSDictionary *responseTranslate = [self translate: self.keywordText.text from:@"en" to:@"fi"];
-    
-    if (responseTranslate) {
-        NSString *trans = [[[responseTranslate objectForKey:@"sentences"] firstObject] objectForKey:@"trans"];
-        //NSLog(@"QUANG ... Response %@", [responseTranslate objectForKey:@"sentences"]);
-        NSLog(@"QUANG ... %@", trans);
-    }
+    [self googleTranslateWord: [self.keywordText.text lowercaseString] from:@"en" to:@"fi"];
     
 }
 
-- (void)injectInitialJS
+- (void)googleTranslateWord:(NSString*)keyword from:(NSString*)from to:(NSString*)to
 {
-    NSString *injectedJSString = @"function tranlateRequest(a,b,c){var d=null;d=new XMLHttpRequest();d.open('GET','http://translate.google.com/translate_a/t?client=webapp&hl=en&sc=1&q='+a+'&sl='+b+'&tl='+c,false);d.send(null);return d.responseText}";
-    [self.translateWebview stringByEvaluatingJavaScriptFromString:injectedJSString];
-}
-
-- (NSDictionary *)translate:(NSString*)keyword from:(NSString*)from to:(NSString*)to
-{
-    // TO DO : CHECK FOR SPECIAL CHARACTER ERROR
     NSString *translateRequest = [NSString stringWithFormat:@"tranlateRequest('%@','%@','%@');", [keyword URLEncodedString], from, to];
     NSString *reponseString = [self.translateWebview stringByEvaluatingJavaScriptFromString:translateRequest];
     //NSLog(@"Json data %@", reponseString);
     
-    // Process json data
-    if ([reponseString isEqualToString:@""]) return nil;
-    
-    NSData* data = [reponseString dataUsingEncoding:NSUTF8StringEncoding];
-    NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-    //NSLog(@"Objective-C dictionary %@", jsonObject);
-    
-    // SAVE TRANSLATION DATA TO PARSE.COM
-    [self saveTranslationObjectIntoParse:keyword from:from to:to translation:jsonObject];
-    
-    return jsonObject;
+    if (![reponseString isEqualToString:@""]) {
+        
+        [self saveTranslationToParse:keyword dictType:[NSString stringWithFormat:@"%@_%@", from, to] translation:[self rewriteGoogleTranslateResult:reponseString]];
+    }
 }
 
-- (void)saveTranslationObjectIntoParse:(NSString*)keyword from:(NSString*)from to:(NSString*)to translation:(NSDictionary*)translation
+- (void)saveTranslationToParse:(NSString*)keyword dictType:(NSString*)dictType translation:(NSDictionary*)translation
 {
     PFQuery *query = [PFQuery queryWithClassName:@"Vocabulary"];
-    [query whereKey:@"dict_type" equalTo:[NSString stringWithFormat:@"%@_%@", from, to]];
+    [query whereKey:@"dict_type" equalTo:dictType];
     [query whereKey:@"keyword" equalTo:keyword];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {            
             if (objects.count == 0) {
                 PFObject *word = [PFObject objectWithClassName:@"Vocabulary"];
                 [word setObject:keyword forKey:@"keyword"];
-                [word setObject:[NSString stringWithFormat:@"%@_%@", from, to] forKey:@"dict_type"];
+                [word setObject:dictType forKey:@"dict_type"];
                 [word setObject:translation forKey:@"translation"];
                 [word setObject:[NSNumber numberWithInteger:1] forKey:@"score"];
                 /*
@@ -121,5 +100,34 @@
             NSLog(@"Error: %@ %@", error, [error userInfo]);
         }
     }];
+}
+
+- (void)injectInitialJS
+{
+    NSString *injectedJSString = @"function tranlateRequest(a,b,c){var d=null;d=new XMLHttpRequest();d.open('GET','http://translate.google.com/translate_a/t?client=webapp&hl=en&sc=1&q='+a+'&sl='+b+'&tl='+c,false);d.send(null);return d.responseText}";
+    [self.translateWebview stringByEvaluatingJavaScriptFromString:injectedJSString];
+}
+
+- (NSDictionary *)rewriteGoogleTranslateResult:(NSString *)response
+{
+    NSData* rawdata = [response dataUsingEncoding:NSUTF8StringEncoding];
+    NSDictionary *data = [NSJSONSerialization JSONObjectWithData:rawdata options:kNilOptions error:nil];
+    
+    NSMutableArray *dict = [[NSMutableArray alloc] init];
+    for (NSDictionary *d in [data objectForKey:@"dict"]) {
+        NSDictionary *entry = [NSDictionary dictionaryWithObjectsAndKeys:
+                               [d objectForKey:@"pos"], @"pos",
+                               [d objectForKey:@"terms"], @"terms",
+                               nil];
+        [dict addObject:entry];
+    }
+    
+    NSString *trans = [[[data objectForKey:@"sentences"] firstObject] objectForKey:@"trans"];
+    
+    NSDictionary *output = [NSDictionary dictionaryWithObjectsAndKeys:
+                            trans, @"sentence",
+                            dict, @"dict",
+                            nil];
+    return output;
 }
 @end

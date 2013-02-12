@@ -26,10 +26,10 @@
         // Custom the table
         
         // The className to query on
-        self.className = @"Person";
+        self.className = @"Vocabulary";
         
         // The key of the PFObject to display in the label of the default cell style
-        self.textKey = @"text";
+        self.textKey = @"keyword";
         
         // Whether the built-in pull-to-refresh is enabled
         self.pullToRefreshEnabled = YES;
@@ -205,6 +205,9 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     
+    cell.textLabel.text = [object objectForKey:@"keyword"];
+    
+    /*
     // Configure the cell
     cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", [object objectForKey:@"firstname"], [object objectForKey:@"lastname"]];
     
@@ -214,7 +217,7 @@
     cell.imageView.image = [UIImage imageWithData:imageData];
     
     //cell.detailTextLabel.text = [NSString stringWithFormat:@"Priority: %@", [object objectForKey:@"priority"]];
-    
+    */
     return cell;
 }
 @end
