@@ -9,8 +9,9 @@
 #import "EWTranslateViewController.h"
 #import <Parse/Parse.h>
 #import "NSString+URLEncoding.h"
+#import "Base64.h"
 
-@interface EWTranslateViewController ()
+@interface EWTranslateViewController () <UIWebViewDelegate>
 @property (nonatomic) BOOL isJavascriptInjected;
 @end
 
@@ -66,8 +67,25 @@
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:keyword message:[NSString stringWithFormat:@"%@", data] delegate:nil cancelButtonTitle:@"Okie" otherButtonTitles:nil];
         [alert show];
         
+        [self googleImageWord:keyword];
+        
         [self saveTranslationToParse:keyword dictType:[NSString stringWithFormat:@"%@_%@", from, to] translation:data];
     }
+}
+
+- (void)googleImageWord:(NSString*)keyword
+{
+    NSURL *requestURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://www.google.com/search?um=1&ie=UTF-8&hl=en&tbm=isch&tbs=ift:jpg&q=%@", [keyword URLEncodedString]]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:requestURL];
+    [self.googleImageWebview loadRequest:request];
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView
+{
+    NSString *reponseString = [self.googleImageWebview stringByEvaluatingJavaScriptFromString:@"document.getElementById('is_rim_0_0').src;"];
+    
+    NSString *stringData = [reponseString stringByReplacingCharactersInRange:NSMakeRange(0, 23) withString:@""];
+    NSLog(@"QUANG ... %@", stringData);
 }
 
 - (void)saveTranslationToParse:(NSString*)keyword dictType:(NSString*)dictType translation:(NSDictionary*)translation

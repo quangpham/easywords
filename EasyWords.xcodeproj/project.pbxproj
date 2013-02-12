@@ -36,6 +36,7 @@
 		303419F616CA7D0900FA2CF2 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 303419F116CA7D0900FA2CF2 /* Default@2x.png */; };
 		303419F716CA7D0900FA2CF2 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 303419F316CA7D0900FA2CF2 /* 1.jpg */; };
 		303419FE16CA7EA700FA2CF2 /* NSString+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 303419FD16CA7EA700FA2CF2 /* NSString+URLEncoding.m */; };
+		309A817516CB0662002DDF40 /* Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 309A817416CB0662002DDF40 /* Base64.m */; };
 		30A8597616C92BD4009EB24D /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A8597516C92BD4009EB24D /* MBProgressHUD.m */; };
 /* End PBXBuildFile section */
 
@@ -77,6 +78,8 @@
 		303419F316CA7D0900FA2CF2 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
 		303419FC16CA7EA700FA2CF2 /* NSString+URLEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEncoding.h"; sourceTree = "<group>"; };
 		303419FD16CA7EA700FA2CF2 /* NSString+URLEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncoding.m"; sourceTree = "<group>"; };
+		309A817316CB0662002DDF40 /* Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64.h; sourceTree = "<group>"; };
+		309A817416CB0662002DDF40 /* Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64.m; sourceTree = "<group>"; };
 		30A8597416C92BD4009EB24D /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		30A8597516C92BD4009EB24D /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -218,9 +221,19 @@
 			path = Categories;
 			sourceTree = "<group>";
 		};
+		309A817216CB0662002DDF40 /* Base64 */ = {
+			isa = PBXGroup;
+			children = (
+				309A817316CB0662002DDF40 /* Base64.h */,
+				309A817416CB0662002DDF40 /* Base64.m */,
+			);
+			path = Base64;
+			sourceTree = "<group>";
+		};
 		30A8597216C92BD4009EB24D /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				309A817216CB0662002DDF40 /* Base64 */,
 				303419FB16CA7EA700FA2CF2 /* Categories */,
 				30A8597316C92BD4009EB24D /* MBProgressHUD */,
 			);
@@ -311,6 +324,7 @@
 				303419EC16CA7CF400FA2CF2 /* EWMasterViewController.m in Sources */,
 				303419ED16CA7CF400FA2CF2 /* EWTranslateViewController.m in Sources */,
 				303419FE16CA7EA700FA2CF2 /* NSString+URLEncoding.m in Sources */,
+				309A817516CB0662002DDF40 /* Base64.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

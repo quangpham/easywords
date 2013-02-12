@@ -12,5 +12,6 @@
 @property (weak, nonatomic) IBOutlet UIWebView *translateWebview;
 - (IBAction)translateButtonDidTapped:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextField *keywordText;
+@property (weak, nonatomic) IBOutlet UIWebView *googleImageWebview;
 
 @end

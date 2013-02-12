@@ -133,7 +133,7 @@
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ymQ-2U-skb">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" id="oMG-oE-LqF"/>
+                                    <constraint firstAttribute="width" id="1JZ-q5-SuL"/>
                                     <constraint firstAttribute="height" id="tqD-T7-NLL"/>
                                 </constraints>
                             </webView>
@@ -158,19 +158,46 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lTa-Fa-WOr">
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jKA-eS-mKC"/>
+                                    <webView contentMode="scaleToFill" horizontalHuggingPriority="1" verticalHuggingPriority="1" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1" translatesAutoresizingMaskIntoConstraints="NO" id="Vxh-ud-Hay" userLabel="GoogleImage">
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="H2S-ap-2ng" id="1LO-A3-mCU"/>
+                                        </connections>
+                                    </webView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="jKA-eS-mKC" firstAttribute="bottom" secondItem="lTa-Fa-WOr" secondAttribute="bottom" type="default" id="AGf-7T-jfc"/>
+                                    <constraint firstItem="jKA-eS-mKC" firstAttribute="leading" secondItem="lTa-Fa-WOr" secondAttribute="leading" type="default" id="FL5-e7-FqC"/>
+                                    <constraint firstItem="jKA-eS-mKC" firstAttribute="top" secondItem="lTa-Fa-WOr" secondAttribute="top" type="default" id="QeL-0e-g6t"/>
+                                    <constraint firstItem="Vxh-ud-Hay" firstAttribute="leading" secondItem="lTa-Fa-WOr" secondAttribute="leading" type="default" id="XvS-wm-Az4"/>
+                                    <constraint firstItem="Vxh-ud-Hay" firstAttribute="trailing" secondItem="lTa-Fa-WOr" secondAttribute="trailing" type="default" id="YpP-4q-dbH"/>
+                                    <constraint firstItem="Vxh-ud-Hay" firstAttribute="top" secondItem="lTa-Fa-WOr" secondAttribute="top" type="default" id="hn7-nF-GSl"/>
+                                    <constraint firstItem="Vxh-ud-Hay" firstAttribute="bottom" secondItem="lTa-Fa-WOr" secondAttribute="bottom" type="default" id="mUT-Ui-Y2e"/>
+                                    <constraint firstItem="jKA-eS-mKC" firstAttribute="trailing" secondItem="lTa-Fa-WOr" secondAttribute="trailing" type="default" id="wpx-XF-2zX"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ymQ-2U-skb" firstAttribute="top" secondItem="B3s-Md-Fxy" secondAttribute="top" type="default" id="5bM-G4-pnG"/>
                             <constraint firstItem="aov-2P-Awd" firstAttribute="top" secondItem="B3s-Md-Fxy" secondAttribute="top" constant="20" symbolic="YES" type="default" id="6Tu-fc-wV8"/>
                             <constraint firstItem="1SV-ZL-44a" firstAttribute="top" secondItem="B3s-Md-Fxy" secondAttribute="top" constant="20" symbolic="YES" type="default" id="Ct9-16-Bwf"/>
+                            <constraint firstItem="lTa-Fa-WOr" firstAttribute="top" secondItem="B3s-Md-Fxy" secondAttribute="top" constant="104" id="ED4-Le-EbZ"/>
                             <constraint firstItem="ymQ-2U-skb" firstAttribute="leading" secondItem="B3s-Md-Fxy" secondAttribute="leading" type="default" id="Gie-cH-6nl"/>
+                            <constraint firstItem="lTa-Fa-WOr" firstAttribute="leading" secondItem="B3s-Md-Fxy" secondAttribute="leading" constant="135" id="Zg3-YP-gLm"/>
+                            <constraint firstItem="lTa-Fa-WOr" firstAttribute="centerX" secondItem="B3s-Md-Fxy" secondAttribute="centerX" type="default" id="ebT-yW-GWg"/>
                             <constraint firstItem="aov-2P-Awd" firstAttribute="leading" secondItem="1SV-ZL-44a" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="iqP-me-amt"/>
                             <constraint firstItem="1SV-ZL-44a" firstAttribute="leading" secondItem="B3s-Md-Fxy" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="wqK-Ep-XnJ"/>
                             <constraint firstAttribute="trailing" secondItem="aov-2P-Awd" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="zeQ-9P-0NW"/>
+                            <constraint firstAttribute="bottom" secondItem="lTa-Fa-WOr" secondAttribute="bottom" constant="306" id="znc-sc-0dn"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="googleImageWebview" destination="Vxh-ud-Hay" id="01U-Wg-bCF"/>
                         <outlet property="keywordText" destination="1SV-ZL-44a" id="yWE-F1-oLn"/>
                         <outlet property="translateWebview" destination="ymQ-2U-skb" id="XsI-6k-dXr"/>
                     </connections>
@@ -278,6 +305,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/EWTranslateViewController.h"/>
             <relationships>
                 <relationship kind="action" name="translateButtonDidTapped:"/>
+                <relationship kind="outlet" name="googleImageWebview" candidateClass="UIWebView"/>
                 <relationship kind="outlet" name="keywordText" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="translateWebview" candidateClass="UIWebView"/>
             </relationships>
