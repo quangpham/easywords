@@ -9,6 +9,7 @@
 #import "EWMasterViewController.h"
 #import <Parse/Parse.h>
 
+#import "EWAppDelegate.h"
 
 @interface EWMasterViewController () {
     NSMutableArray *_objects;
@@ -152,6 +153,12 @@
 - (IBAction)fbLoginTapped:(id)sender {
 }
 
+- (IBAction)translateButtonDidTapped:(id)sender {
+    UIStoryboard *storyBoard = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] init];
+    UIViewController *vcToGo = [storyBoard instantiateViewControllerWithIdentifier:@"EWTranslateViewController"];
+    [self.navigationController pushViewController:vcToGo animated:YES];
+}
+
 #pragma mark - Parse
 
 - (void)objectsDidLoad:(NSError *)error {
@@ -172,7 +179,9 @@
 - (PFQuery *)queryForTable {
     PFQuery *query = [PFQuery queryWithClassName:self.className];
     
+    /*
     [query whereKey:@"author" equalTo:[PFUser currentUser]];
+    */
     
     // If no objects are loaded in memory, we look to the cache first to fill the table
     // and then subsequently do a query against the network.

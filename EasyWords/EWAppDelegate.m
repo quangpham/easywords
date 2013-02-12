@@ -11,6 +11,8 @@
 
 @implementation EWAppDelegate
 
+@synthesize isTestUser;
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
@@ -21,7 +23,11 @@
     
     //[PFFacebookUtils initializeWithApplicationId:@"101064763411885"];
     
-    [self createFakeUser];
+    self.isTestUser = NO;
+    
+    if (self.isTestUser) {
+        [self createFakeUser];
+    }
     
     return YES;
 }

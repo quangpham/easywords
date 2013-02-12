@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *lastNameText;
 - (IBAction)saveButtonDidTapped:(id)sender;
 - (IBAction)pickPhotoButtonDidTapped:(id)sender;
+
 @property (weak, nonatomic) IBOutlet UIImageView *userImage;
 
 @end

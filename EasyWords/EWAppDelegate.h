@@ -11,5 +11,6 @@
 @interface EWAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (nonatomic) BOOL isTestUser;
 
 @end

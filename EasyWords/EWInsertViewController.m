@@ -46,6 +46,7 @@
     [person setObject:self.firstNameText.text forKey:@"firstname"];
     [person setObject:self.lastNameText.text forKey:@"lastname"];
     
+    /*
     // set object with user
     [person setObject:[PFUser currentUser] forKey:@"author"];
     
@@ -53,7 +54,7 @@
     PFACL *acl = [PFACL ACLWithUser:[PFUser currentUser]];
     [acl setPublicReadAccess:YES];
     [person setACL:acl];
-    
+    */
     
     // Save Image Data
     UIImage *image = [self imageWithImage:self.userImage.image scaledToSize:CGSizeMake(150, 150)];
