@@ -13,11 +13,7 @@
 		3005C21316C527BB00117B19 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3005C21116C527BB00117B19 /* InfoPlist.strings */; };
 		3005C21516C527BB00117B19 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3005C21416C527BB00117B19 /* main.m */; };
 		3005C21916C527BC00117B19 /* EWAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3005C21816C527BC00117B19 /* EWAppDelegate.m */; };
-		3005C21B16C527BC00117B19 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 3005C21A16C527BC00117B19 /* Default.png */; };
-		3005C21D16C527BC00117B19 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3005C21C16C527BC00117B19 /* Default@2x.png */; };
-		3005C21F16C527BC00117B19 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3005C21E16C527BC00117B19 /* Default-568h@2x.png */; };
 		3005C22216C527BC00117B19 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3005C22016C527BC00117B19 /* MainStoryboard.storyboard */; };
-		3005C22516C527BC00117B19 /* EWMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3005C22416C527BC00117B19 /* EWMasterViewController.m */; };
 		3005C22F16C5280300117B19 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3005C22E16C5280300117B19 /* Parse.framework */; };
 		3005C23216C5283A00117B19 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3005C23016C5281F00117B19 /* AudioToolbox.framework */; };
 		3005C23416C5284800117B19 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3005C23316C5284800117B19 /* Accounts.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -32,9 +28,13 @@
 		3005C24616C528A900117B19 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3005C24516C528A900117B19 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		3005C24816C528AE00117B19 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3005C24716C528AE00117B19 /* StoreKit.framework */; };
 		3005C24A16C528B500117B19 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3005C24916C528B500117B19 /* SystemConfiguration.framework */; };
-		303419E316CA4A8300FA2CF2 /* EWTranslateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 303419E216CA4A8300FA2CF2 /* EWTranslateViewController.m */; };
-		30A246EC16C67301006D6D87 /* EWInsertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A246EA16C67301006D6D87 /* EWInsertViewController.m */; };
-		30A8597116C9222E009EB24D /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 30A8597016C9222E009EB24D /* 1.jpg */; };
+		303419EB16CA7CF400FA2CF2 /* EWInsertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 303419E616CA7CF400FA2CF2 /* EWInsertViewController.m */; };
+		303419EC16CA7CF400FA2CF2 /* EWMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 303419E816CA7CF400FA2CF2 /* EWMasterViewController.m */; };
+		303419ED16CA7CF400FA2CF2 /* EWTranslateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 303419EA16CA7CF400FA2CF2 /* EWTranslateViewController.m */; };
+		303419F416CA7D0900FA2CF2 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 303419EF16CA7D0900FA2CF2 /* Default-568h@2x.png */; };
+		303419F516CA7D0900FA2CF2 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 303419F016CA7D0900FA2CF2 /* Default.png */; };
+		303419F616CA7D0900FA2CF2 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 303419F116CA7D0900FA2CF2 /* Default@2x.png */; };
+		303419F716CA7D0900FA2CF2 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 303419F316CA7D0900FA2CF2 /* 1.jpg */; };
 		30A8597616C92BD4009EB24D /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A8597516C92BD4009EB24D /* MBProgressHUD.m */; };
 /* End PBXBuildFile section */
 
@@ -49,12 +49,7 @@
 		3005C21616C527BB00117B19 /* EasyWords-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EasyWords-Prefix.pch"; sourceTree = "<group>"; };
 		3005C21716C527BB00117B19 /* EWAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EWAppDelegate.h; sourceTree = "<group>"; };
 		3005C21816C527BC00117B19 /* EWAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EWAppDelegate.m; sourceTree = "<group>"; };
-		3005C21A16C527BC00117B19 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		3005C21C16C527BC00117B19 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		3005C21E16C527BC00117B19 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		3005C22116C527BC00117B19 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		3005C22316C527BC00117B19 /* EWMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EWMasterViewController.h; sourceTree = "<group>"; };
-		3005C22416C527BC00117B19 /* EWMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EWMasterViewController.m; sourceTree = "<group>"; };
 		3005C22E16C5280300117B19 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		3005C23016C5281F00117B19 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		3005C23316C5284800117B19 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
@@ -69,11 +64,16 @@
 		3005C24516C528A900117B19 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		3005C24716C528AE00117B19 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		3005C24916C528B500117B19 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		303419E116CA4A8300FA2CF2 /* EWTranslateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EWTranslateViewController.h; sourceTree = "<group>"; };
-		303419E216CA4A8300FA2CF2 /* EWTranslateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EWTranslateViewController.m; sourceTree = "<group>"; };
-		30A246EA16C67301006D6D87 /* EWInsertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = EWInsertViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		30A246EB16C67301006D6D87 /* EWInsertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EWInsertViewController.h; sourceTree = "<group>"; };
-		30A8597016C9222E009EB24D /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
+		303419E516CA7CF400FA2CF2 /* EWInsertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EWInsertViewController.h; sourceTree = "<group>"; };
+		303419E616CA7CF400FA2CF2 /* EWInsertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EWInsertViewController.m; sourceTree = "<group>"; };
+		303419E716CA7CF400FA2CF2 /* EWMasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EWMasterViewController.h; sourceTree = "<group>"; };
+		303419E816CA7CF400FA2CF2 /* EWMasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EWMasterViewController.m; sourceTree = "<group>"; };
+		303419E916CA7CF400FA2CF2 /* EWTranslateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EWTranslateViewController.h; sourceTree = "<group>"; };
+		303419EA16CA7CF400FA2CF2 /* EWTranslateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EWTranslateViewController.m; sourceTree = "<group>"; };
+		303419EF16CA7D0900FA2CF2 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		303419F016CA7D0900FA2CF2 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		303419F116CA7D0900FA2CF2 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		303419F316CA7D0900FA2CF2 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
 		30A8597416C92BD4009EB24D /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		30A8597516C92BD4009EB24D /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -113,8 +113,8 @@
 				3005C20716C527BB00117B19 /* Frameworks */,
 				3005C20516C527BB00117B19 /* Products */,
 				3005C20F16C527BB00117B19 /* Supporting Files */,
-				30A8596F16C9222E009EB24D /* Images */,
 				30A8597216C92BD4009EB24D /* Libraries */,
+				303419EE16CA7D0900FA2CF2 /* Resources */,
 			);
 			sourceTree = "<group>";
 		};
@@ -153,15 +153,10 @@
 		3005C20E16C527BB00117B19 /* EasyWords */ = {
 			isa = PBXGroup;
 			children = (
+				303419E416CA7CF400FA2CF2 /* ViewControllers */,
 				3005C21716C527BB00117B19 /* EWAppDelegate.h */,
 				3005C21816C527BC00117B19 /* EWAppDelegate.m */,
 				3005C22016C527BC00117B19 /* MainStoryboard.storyboard */,
-				3005C22316C527BC00117B19 /* EWMasterViewController.h */,
-				3005C22416C527BC00117B19 /* EWMasterViewController.m */,
-				30A246EB16C67301006D6D87 /* EWInsertViewController.h */,
-				30A246EA16C67301006D6D87 /* EWInsertViewController.m */,
-				303419E116CA4A8300FA2CF2 /* EWTranslateViewController.h */,
-				303419E216CA4A8300FA2CF2 /* EWTranslateViewController.m */,
 			);
 			path = EasyWords;
 			sourceTree = "<group>";
@@ -173,21 +168,42 @@
 				3005C21116C527BB00117B19 /* InfoPlist.strings */,
 				3005C21416C527BB00117B19 /* main.m */,
 				3005C21616C527BB00117B19 /* EasyWords-Prefix.pch */,
-				3005C21A16C527BC00117B19 /* Default.png */,
-				3005C21C16C527BC00117B19 /* Default@2x.png */,
-				3005C21E16C527BC00117B19 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
 			path = EasyWords;
 			sourceTree = "<group>";
 		};
-		30A8596F16C9222E009EB24D /* Images */ = {
+		303419E416CA7CF400FA2CF2 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				30A8597016C9222E009EB24D /* 1.jpg */,
+				303419E516CA7CF400FA2CF2 /* EWInsertViewController.h */,
+				303419E616CA7CF400FA2CF2 /* EWInsertViewController.m */,
+				303419E716CA7CF400FA2CF2 /* EWMasterViewController.h */,
+				303419E816CA7CF400FA2CF2 /* EWMasterViewController.m */,
+				303419E916CA7CF400FA2CF2 /* EWTranslateViewController.h */,
+				303419EA16CA7CF400FA2CF2 /* EWTranslateViewController.m */,
 			);
-			name = Images;
-			path = EasyWords/Images;
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		303419EE16CA7D0900FA2CF2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				303419EF16CA7D0900FA2CF2 /* Default-568h@2x.png */,
+				303419F016CA7D0900FA2CF2 /* Default.png */,
+				303419F116CA7D0900FA2CF2 /* Default@2x.png */,
+				303419F216CA7D0900FA2CF2 /* Images */,
+			);
+			name = Resources;
+			path = EasyWords/Resources;
+			sourceTree = "<group>";
+		};
+		303419F216CA7D0900FA2CF2 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				303419F316CA7D0900FA2CF2 /* 1.jpg */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 		30A8597216C92BD4009EB24D /* Libraries */ = {
@@ -260,11 +276,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				3005C21316C527BB00117B19 /* InfoPlist.strings in Resources */,
-				3005C21B16C527BC00117B19 /* Default.png in Resources */,
-				3005C21D16C527BC00117B19 /* Default@2x.png in Resources */,
-				3005C21F16C527BC00117B19 /* Default-568h@2x.png in Resources */,
 				3005C22216C527BC00117B19 /* MainStoryboard.storyboard in Resources */,
-				30A8597116C9222E009EB24D /* 1.jpg in Resources */,
+				303419F416CA7D0900FA2CF2 /* Default-568h@2x.png in Resources */,
+				303419F516CA7D0900FA2CF2 /* Default.png in Resources */,
+				303419F616CA7D0900FA2CF2 /* Default@2x.png in Resources */,
+				303419F716CA7D0900FA2CF2 /* 1.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,10 +293,10 @@
 			files = (
 				3005C21516C527BB00117B19 /* main.m in Sources */,
 				3005C21916C527BC00117B19 /* EWAppDelegate.m in Sources */,
-				3005C22516C527BC00117B19 /* EWMasterViewController.m in Sources */,
-				30A246EC16C67301006D6D87 /* EWInsertViewController.m in Sources */,
 				30A8597616C92BD4009EB24D /* MBProgressHUD.m in Sources */,
-				303419E316CA4A8300FA2CF2 /* EWTranslateViewController.m in Sources */,
+				303419EB16CA7CF400FA2CF2 /* EWInsertViewController.m in Sources */,
+				303419EC16CA7CF400FA2CF2 /* EWMasterViewController.m in Sources */,
+				303419ED16CA7CF400FA2CF2 /* EWTranslateViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

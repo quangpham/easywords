@@ -7,6 +7,7 @@
 //
 
 #import "EWTranslateViewController.h"
+#import <Parse/Parse.h>
 
 @interface EWTranslateViewController ()
 @property (nonatomic) BOOL isJavascriptInjected;
@@ -48,14 +49,21 @@
         self.isJavascriptInjected = YES;
     }
     
+   // NSString *searchkeyword =
+    
     NSDictionary *responseTranslate = [self translate:self.keywordText.text from:@"en" to:@"fi"];
-    NSLog(@"QUANG ... Response %@", [responseTranslate objectForKey:@"sentences"]);
+    
+    if (responseTranslate) {
+        NSString *trans = [[[responseTranslate objectForKey:@"sentences"] firstObject] objectForKey:@"trans"];
+        //NSLog(@"QUANG ... Response %@", [responseTranslate objectForKey:@"sentences"]);
+        NSLog(@"QUANG ... %@", trans);
+    }
+    
 }
 
 - (void)injectInitialJS
 {
     NSString *injectedJSString = @"function tranlateRequest(a,b,c){var d=null;d=new XMLHttpRequest();d.open('GET','http://translate.google.com/translate_a/t?client=webapp&hl=en&sc=1&q='+a+'&sl='+b+'&tl='+c,false);d.send(null);return d.responseText}";
-    
     [self.translateWebview stringByEvaluatingJavaScriptFromString:injectedJSString];
 }
 
@@ -64,15 +72,54 @@
     // TO DO : CHECK FOR SPECIAL CHARACTER ERROR
     NSString *translateRequest = [NSString stringWithFormat:@"tranlateRequest('%@','%@','%@');", keyword, from, to];
     NSString *reponseString = [self.translateWebview stringByEvaluatingJavaScriptFromString:translateRequest];
-    NSLog(@"Json data %@", reponseString);
+    //NSLog(@"Json data %@", reponseString);
     
     // Process json data
     if ([reponseString isEqualToString:@""]) return nil;
     
     NSData* data = [reponseString dataUsingEncoding:NSUTF8StringEncoding];
     NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-    NSLog(@"Objective-C dictionary %@", jsonObject);
+    //NSLog(@"Objective-C dictionary %@", jsonObject);
+    
+    // SAVE TRANSLATION DATA TO PARSE.COM
+    [self saveTranslationObjectIntoParse:keyword from:from to:to translation:jsonObject];
     
     return jsonObject;
+}
+
+- (void)saveTranslationObjectIntoParse:(NSString*)keyword from:(NSString*)from to:(NSString*)to translation:(NSDictionary*)translation
+{
+    PFQuery *query = [PFQuery queryWithClassName:@"Vocabulary"];
+    [query whereKey:@"dict_type" equalTo:[NSString stringWithFormat:@"%@_%@", from, to]];
+    [query whereKey:@"keyword" equalTo:keyword];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {            
+            if (objects.count == 0) {
+                PFObject *word = [PFObject objectWithClassName:@"Vocabulary"];
+                [word setObject:keyword forKey:@"keyword"];
+                [word setObject:[NSString stringWithFormat:@"%@_%@", from, to] forKey:@"dict_type"];
+                [word setObject:translation forKey:@"translation"];
+                [word setObject:[NSNumber numberWithInteger:1] forKey:@"score"];
+                /*
+                 // set object with user
+                 [word setObject:[PFUser currentUser] forKey:@"author"];
+                 
+                 // ACL permissions
+                 PFACL *acl = [PFACL ACLWithUser:[PFUser currentUser]];
+                 [acl setPublicReadAccess:YES];
+                 [word setACL:acl];
+                 */
+                [word saveInBackground];
+            } else {
+                PFObject *currentObject = (PFObject*)[objects lastObject];
+                NSInteger myscore = [[currentObject valueForKey:@"score"] integerValue] + 1;
+                [currentObject setObject:[NSNumber numberWithInteger:myscore] forKey:@"score"];
+                [currentObject saveInBackground];
+            }
+            
+        } else {
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
 }
 @end
