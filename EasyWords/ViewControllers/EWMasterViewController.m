@@ -8,6 +8,7 @@
 
 #import "EWMasterViewController.h"
 #import <Parse/Parse.h>
+#import "NSString+URLEncoding.h"
 
 #import "EWAppDelegate.h"
 
@@ -144,8 +145,8 @@
 
 
 - (IBAction)buttonTapped:(id)sender {
-    PFQueryTableViewController *tableController = [[PFQueryTableViewController alloc] initWithClassName:@"Person"];
-    tableController.textKey = @"text";
+    PFQueryTableViewController *tableController = [[PFQueryTableViewController alloc] initWithClassName:@"Vocabulary"];
+    tableController.textKey = @"keyword";
     [self.navigationController pushViewController:tableController animated:YES];
     //[self presentViewController:tableController animated:YES completion:nil];
 }

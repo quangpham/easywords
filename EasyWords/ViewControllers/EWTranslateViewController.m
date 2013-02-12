@@ -8,6 +8,7 @@
 
 #import "EWTranslateViewController.h"
 #import <Parse/Parse.h>
+#import "NSString+URLEncoding.h"
 
 @interface EWTranslateViewController ()
 @property (nonatomic) BOOL isJavascriptInjected;
@@ -49,9 +50,8 @@
         self.isJavascriptInjected = YES;
     }
     
-   // NSString *searchkeyword =
     
-    NSDictionary *responseTranslate = [self translate:self.keywordText.text from:@"en" to:@"fi"];
+    NSDictionary *responseTranslate = [self translate: self.keywordText.text from:@"en" to:@"fi"];
     
     if (responseTranslate) {
         NSString *trans = [[[responseTranslate objectForKey:@"sentences"] firstObject] objectForKey:@"trans"];
@@ -70,7 +70,7 @@
 - (NSDictionary *)translate:(NSString*)keyword from:(NSString*)from to:(NSString*)to
 {
     // TO DO : CHECK FOR SPECIAL CHARACTER ERROR
-    NSString *translateRequest = [NSString stringWithFormat:@"tranlateRequest('%@','%@','%@');", keyword, from, to];
+    NSString *translateRequest = [NSString stringWithFormat:@"tranlateRequest('%@','%@','%@');", [keyword URLEncodedString], from, to];
     NSString *reponseString = [self.translateWebview stringByEvaluatingJavaScriptFromString:translateRequest];
     //NSLog(@"Json data %@", reponseString);
     
