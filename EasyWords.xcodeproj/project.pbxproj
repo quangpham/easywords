@@ -29,13 +29,14 @@
 		3005C24816C528AE00117B19 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3005C24716C528AE00117B19 /* StoreKit.framework */; };
 		3005C24A16C528B500117B19 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3005C24916C528B500117B19 /* SystemConfiguration.framework */; };
 		303419EB16CA7CF400FA2CF2 /* EWInsertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 303419E616CA7CF400FA2CF2 /* EWInsertViewController.m */; };
-		303419EC16CA7CF400FA2CF2 /* EWMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 303419E816CA7CF400FA2CF2 /* EWMasterViewController.m */; };
 		303419ED16CA7CF400FA2CF2 /* EWTranslateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 303419EA16CA7CF400FA2CF2 /* EWTranslateViewController.m */; };
 		303419F416CA7D0900FA2CF2 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 303419EF16CA7D0900FA2CF2 /* Default-568h@2x.png */; };
 		303419F516CA7D0900FA2CF2 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 303419F016CA7D0900FA2CF2 /* Default.png */; };
 		303419F616CA7D0900FA2CF2 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 303419F116CA7D0900FA2CF2 /* Default@2x.png */; };
 		303419F716CA7D0900FA2CF2 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 303419F316CA7D0900FA2CF2 /* 1.jpg */; };
 		303419FE16CA7EA700FA2CF2 /* NSString+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 303419FD16CA7EA700FA2CF2 /* NSString+URLEncoding.m */; };
+		305027FE16CD5CDE0043066E /* bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 305027FD16CD5CDE0043066E /* bg.jpg */; };
+		3050280116CD604C0043066E /* EWMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3050280016CD604C0043066E /* EWMainViewController.m */; };
 		308E825616CBF3B6001E1A47 /* NSObject+YMOptionsAndDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 308E825316CBF3B6001E1A47 /* NSObject+YMOptionsAndDefaults.m */; };
 		308E825716CBF3B6001E1A47 /* UIViewController+KNSemiModal.m in Sources */ = {isa = PBXBuildFile; fileRef = 308E825516CBF3B6001E1A47 /* UIViewController+KNSemiModal.m */; };
 		309A817516CB0662002DDF40 /* Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 309A817416CB0662002DDF40 /* Base64.m */; };
@@ -70,8 +71,6 @@
 		3005C24916C528B500117B19 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		303419E516CA7CF400FA2CF2 /* EWInsertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EWInsertViewController.h; sourceTree = "<group>"; };
 		303419E616CA7CF400FA2CF2 /* EWInsertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EWInsertViewController.m; sourceTree = "<group>"; };
-		303419E716CA7CF400FA2CF2 /* EWMasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EWMasterViewController.h; sourceTree = "<group>"; };
-		303419E816CA7CF400FA2CF2 /* EWMasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EWMasterViewController.m; sourceTree = "<group>"; };
 		303419E916CA7CF400FA2CF2 /* EWTranslateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EWTranslateViewController.h; sourceTree = "<group>"; };
 		303419EA16CA7CF400FA2CF2 /* EWTranslateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EWTranslateViewController.m; sourceTree = "<group>"; };
 		303419EF16CA7D0900FA2CF2 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -80,6 +79,9 @@
 		303419F316CA7D0900FA2CF2 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
 		303419FC16CA7EA700FA2CF2 /* NSString+URLEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEncoding.h"; sourceTree = "<group>"; };
 		303419FD16CA7EA700FA2CF2 /* NSString+URLEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncoding.m"; sourceTree = "<group>"; };
+		305027FD16CD5CDE0043066E /* bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg.jpg; sourceTree = "<group>"; };
+		305027FF16CD604C0043066E /* EWMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EWMainViewController.h; sourceTree = "<group>"; };
+		3050280016CD604C0043066E /* EWMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EWMainViewController.m; sourceTree = "<group>"; };
 		308E825216CBF3B6001E1A47 /* NSObject+YMOptionsAndDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+YMOptionsAndDefaults.h"; sourceTree = "<group>"; };
 		308E825316CBF3B6001E1A47 /* NSObject+YMOptionsAndDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+YMOptionsAndDefaults.m"; sourceTree = "<group>"; };
 		308E825416CBF3B6001E1A47 /* UIViewController+KNSemiModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+KNSemiModal.h"; sourceTree = "<group>"; };
@@ -190,10 +192,10 @@
 			children = (
 				303419E516CA7CF400FA2CF2 /* EWInsertViewController.h */,
 				303419E616CA7CF400FA2CF2 /* EWInsertViewController.m */,
-				303419E716CA7CF400FA2CF2 /* EWMasterViewController.h */,
-				303419E816CA7CF400FA2CF2 /* EWMasterViewController.m */,
 				303419E916CA7CF400FA2CF2 /* EWTranslateViewController.h */,
 				303419EA16CA7CF400FA2CF2 /* EWTranslateViewController.m */,
+				305027FF16CD604C0043066E /* EWMainViewController.h */,
+				3050280016CD604C0043066E /* EWMainViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -213,6 +215,7 @@
 		303419F216CA7D0900FA2CF2 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				305027FD16CD5CDE0043066E /* bg.jpg */,
 				303419F316CA7D0900FA2CF2 /* 1.jpg */,
 			);
 			path = Images;
@@ -325,6 +328,7 @@
 				303419F516CA7D0900FA2CF2 /* Default.png in Resources */,
 				303419F616CA7D0900FA2CF2 /* Default@2x.png in Resources */,
 				303419F716CA7D0900FA2CF2 /* 1.jpg in Resources */,
+				305027FE16CD5CDE0043066E /* bg.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,12 +343,12 @@
 				3005C21916C527BC00117B19 /* EWAppDelegate.m in Sources */,
 				30A8597616C92BD4009EB24D /* MBProgressHUD.m in Sources */,
 				303419EB16CA7CF400FA2CF2 /* EWInsertViewController.m in Sources */,
-				303419EC16CA7CF400FA2CF2 /* EWMasterViewController.m in Sources */,
 				303419ED16CA7CF400FA2CF2 /* EWTranslateViewController.m in Sources */,
 				303419FE16CA7EA700FA2CF2 /* NSString+URLEncoding.m in Sources */,
 				309A817516CB0662002DDF40 /* Base64.m in Sources */,
 				308E825616CBF3B6001E1A47 /* NSObject+YMOptionsAndDefaults.m in Sources */,
 				308E825716CBF3B6001E1A47 /* UIViewController+KNSemiModal.m in Sources */,
+				3050280116CD604C0043066E /* EWMainViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

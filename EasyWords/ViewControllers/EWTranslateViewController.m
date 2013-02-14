@@ -120,6 +120,7 @@
     // Get JSON data from Google Translate
     NSString *getJSONTranslateRequest = [NSString stringWithFormat:@"getJSONTranslation('%@','%@','%@');", [keyword URLEncodedString], from, to];
     NSString *reponseString = [self.translateWebview stringByEvaluatingJavaScriptFromString:getJSONTranslateRequest];
+    NSLog(@"QUANG ... %@", reponseString);
     
     if (![reponseString isEqualToString:@""]) {
         return [self rewriteGoogleTranslateResult:reponseString];
