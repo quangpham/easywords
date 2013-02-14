@@ -11,6 +11,7 @@
 #import "NSString+URLEncoding.h"
 
 #import "EWAppDelegate.h"
+#import "UIViewController+KNSemiModal.h"
 
 @interface EWMasterViewController () {
     NSMutableArray *_objects;
@@ -80,10 +81,7 @@
 
 - (void)insertNewObject:(id)sender
 {
-    //self.storyboard
-    UIStoryboard *storyBoard = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] init];
-    UIViewController *vcToGo = [storyBoard instantiateViewControllerWithIdentifier:@"EWInsertViewController"];
-    [self.navigationController pushViewController:vcToGo animated:YES];
+    [self presentController:@"EWInsertViewController"];
 }
 
 #pragma mark - Table View
@@ -155,9 +153,16 @@
 }
 
 - (IBAction)translateButtonDidTapped:(id)sender {
+    [self presentController:@"EWTranslateViewController"];
+}
+
+- (void)presentController:(NSString*)controllerName
+{
     UIStoryboard *storyBoard = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] init];
-    UIViewController *vcToGo = [storyBoard instantiateViewControllerWithIdentifier:@"EWTranslateViewController"];
-    [self.navigationController pushViewController:vcToGo animated:YES];
+    UIViewController *vcToGo = [storyBoard instantiateViewControllerWithIdentifier:controllerName];
+
+    [self presentViewController:vcToGo animated:YES completion:nil];
+    //[self.navigationController pushViewController:vcToGo animated:YES];
 }
 
 #pragma mark - Parse
@@ -181,15 +186,15 @@
     PFQuery *query = [PFQuery queryWithClassName:self.className];
     
     
-    [query whereKey:@"author" equalTo:[PFUser currentUser]];
+    //[query whereKey:@"author" equalTo:[PFUser currentUser]];
     
     
     
     // If no objects are loaded in memory, we look to the cache first to fill the table
     // and then subsequently do a query against the network.
-//    if ([self.objects count] == 0) {
-//        query.cachePolicy = kPFCachePolicyCacheThenNetwork;
-//    }
+    if ([self.objects count] == 0) {
+        query.cachePolicy = kPFCachePolicyCacheThenNetwork;
+    }
     
     [query orderByDescending:@"createdAt"];
     

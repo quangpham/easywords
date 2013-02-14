@@ -9,9 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface EWTranslateViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UIWebView *translateWebview;
-- (IBAction)translateButtonDidTapped:(id)sender;
+
 @property (weak, nonatomic) IBOutlet UITextField *keywordText;
-@property (weak, nonatomic) IBOutlet UIWebView *googleImageWebview;
+@property (weak, nonatomic) IBOutlet UIImageView *imageTest;
+
+- (IBAction)translateButtonDidTapped:(id)sender;
+- (IBAction)speakA:(id)sender;
+- (IBAction)speakB:(id)sender;
 
 @end

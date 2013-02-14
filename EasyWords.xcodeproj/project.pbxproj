@@ -36,6 +36,8 @@
 		303419F616CA7D0900FA2CF2 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 303419F116CA7D0900FA2CF2 /* Default@2x.png */; };
 		303419F716CA7D0900FA2CF2 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 303419F316CA7D0900FA2CF2 /* 1.jpg */; };
 		303419FE16CA7EA700FA2CF2 /* NSString+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 303419FD16CA7EA700FA2CF2 /* NSString+URLEncoding.m */; };
+		308E825616CBF3B6001E1A47 /* NSObject+YMOptionsAndDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 308E825316CBF3B6001E1A47 /* NSObject+YMOptionsAndDefaults.m */; };
+		308E825716CBF3B6001E1A47 /* UIViewController+KNSemiModal.m in Sources */ = {isa = PBXBuildFile; fileRef = 308E825516CBF3B6001E1A47 /* UIViewController+KNSemiModal.m */; };
 		309A817516CB0662002DDF40 /* Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 309A817416CB0662002DDF40 /* Base64.m */; };
 		30A8597616C92BD4009EB24D /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A8597516C92BD4009EB24D /* MBProgressHUD.m */; };
 /* End PBXBuildFile section */
@@ -78,6 +80,10 @@
 		303419F316CA7D0900FA2CF2 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
 		303419FC16CA7EA700FA2CF2 /* NSString+URLEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEncoding.h"; sourceTree = "<group>"; };
 		303419FD16CA7EA700FA2CF2 /* NSString+URLEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncoding.m"; sourceTree = "<group>"; };
+		308E825216CBF3B6001E1A47 /* NSObject+YMOptionsAndDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+YMOptionsAndDefaults.h"; sourceTree = "<group>"; };
+		308E825316CBF3B6001E1A47 /* NSObject+YMOptionsAndDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+YMOptionsAndDefaults.m"; sourceTree = "<group>"; };
+		308E825416CBF3B6001E1A47 /* UIViewController+KNSemiModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+KNSemiModal.h"; sourceTree = "<group>"; };
+		308E825516CBF3B6001E1A47 /* UIViewController+KNSemiModal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+KNSemiModal.m"; sourceTree = "<group>"; };
 		309A817316CB0662002DDF40 /* Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64.h; sourceTree = "<group>"; };
 		309A817416CB0662002DDF40 /* Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64.m; sourceTree = "<group>"; };
 		30A8597416C92BD4009EB24D /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
@@ -221,6 +227,17 @@
 			path = Categories;
 			sourceTree = "<group>";
 		};
+		308E825116CBF3B5001E1A47 /* KNSemiModalViewController */ = {
+			isa = PBXGroup;
+			children = (
+				308E825216CBF3B6001E1A47 /* NSObject+YMOptionsAndDefaults.h */,
+				308E825316CBF3B6001E1A47 /* NSObject+YMOptionsAndDefaults.m */,
+				308E825416CBF3B6001E1A47 /* UIViewController+KNSemiModal.h */,
+				308E825516CBF3B6001E1A47 /* UIViewController+KNSemiModal.m */,
+			);
+			path = KNSemiModalViewController;
+			sourceTree = "<group>";
+		};
 		309A817216CB0662002DDF40 /* Base64 */ = {
 			isa = PBXGroup;
 			children = (
@@ -233,6 +250,7 @@
 		30A8597216C92BD4009EB24D /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				308E825116CBF3B5001E1A47 /* KNSemiModalViewController */,
 				309A817216CB0662002DDF40 /* Base64 */,
 				303419FB16CA7EA700FA2CF2 /* Categories */,
 				30A8597316C92BD4009EB24D /* MBProgressHUD */,
@@ -325,6 +343,8 @@
 				303419ED16CA7CF400FA2CF2 /* EWTranslateViewController.m in Sources */,
 				303419FE16CA7EA700FA2CF2 /* NSString+URLEncoding.m in Sources */,
 				309A817516CB0662002DDF40 /* Base64.m in Sources */,
+				308E825616CBF3B6001E1A47 /* NSObject+YMOptionsAndDefaults.m in Sources */,
+				308E825716CBF3B6001E1A47 /* UIViewController+KNSemiModal.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
