@@ -45,6 +45,8 @@
     bgScrollView = [[UIScrollView alloc] initWithFrame:self.view.frame];
     [bgScrollView setContentSize:CGSizeMake(640, 568)];
     [bgScrollView setScrollEnabled:NO];
+    [bgScrollView setShowsHorizontalScrollIndicator:NO];
+    [bgScrollView setShowsVerticalScrollIndicator:NO];
     [self.bgView addSubview:bgScrollView];
     
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 640, 568)];
@@ -57,6 +59,9 @@
     mainContentScrollView = [[UIScrollView alloc] initWithFrame:self.view.frame];
     [mainContentScrollView setContentSize:CGSizeMake(320*5, 568)];
     [mainContentScrollView setPagingEnabled:YES];
+    
+    [mainContentScrollView setShowsHorizontalScrollIndicator:NO];
+    [mainContentScrollView setShowsVerticalScrollIndicator:NO];
     [self.contentView addSubview:mainContentScrollView];
     mainContentScrollView.delegate = self;
     

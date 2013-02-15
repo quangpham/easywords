@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EWTranslateViewController : UIViewController
+@interface EWTranslateViewController : UIViewController <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *keywordText;
 @property (weak, nonatomic) IBOutlet UIImageView *imageTest;

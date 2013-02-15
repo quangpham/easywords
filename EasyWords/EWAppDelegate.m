@@ -30,6 +30,8 @@
         [self createFakeUser];
     }
      */
+    
+    [[UIApplication sharedApplication] setStatusBarHidden:YES];
     [self createFakeUser];
     
     return YES;

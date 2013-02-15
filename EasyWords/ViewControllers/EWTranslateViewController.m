@@ -12,7 +12,7 @@
 #import "Base64.h"
 #import "MBProgressHUD.h"
 
-@interface EWTranslateViewController () <UIWebViewDelegate, UITextViewDelegate>
+@interface EWTranslateViewController () <UIWebViewDelegate>
 @property (nonatomic) BOOL isJavascriptInjected;
 @property (nonatomic, strong) UIWebView *googleImageWeb;
 @property (nonatomic, strong) UIWebView *translateWebview;
@@ -74,9 +74,28 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     [self initWebview];
+    
+    self.keywordText.delegate = self;
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    
+    
+    if (textField == self.keywordText) {
+        NSLog(@"QUANG ... textViewDidEndEditing");
+        [self.keywordText resignFirstResponder];
+        [self searchInProgres];
+        return NO;
+    }
+    return YES;
 
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self.view endEditing:YES];
+}
 
 - (void)viewDidUnload
 {
@@ -93,6 +112,12 @@
 
 - (IBAction)translateButtonDidTapped:(id)sender {
     
+    [self searchInProgres];
+}
+
+
+- (void)searchInProgres
+{
     [self.keywordText resignFirstResponder];
     
     if (!self.isJavascriptInjected) {
@@ -172,15 +197,15 @@
 }
 
 
-- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
-    
-    if([text isEqualToString:@"\n"]) {
-        [textView resignFirstResponder];
-        return NO;
-    }
-    
-    return YES;
-}
+//- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+//    
+//    if([text isEqualToString:@"\n"]) {
+//        [textView resignFirstResponder];
+//        return NO;
+//    }
+//    
+//    return YES;
+//}
 
 
 // HELPER FUNCTION
