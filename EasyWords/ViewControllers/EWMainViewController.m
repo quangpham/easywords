@@ -38,6 +38,8 @@
     [super viewDidLoad];
     [self initBackgroundScrollView];
     [self initContentWrapper];
+    
+    //self.bottomBarView.alpha = 0.5;
 }
 
 - (void)initBackgroundScrollView
@@ -49,8 +51,8 @@
     [bgScrollView setShowsVerticalScrollIndicator:NO];
     [self.bgView addSubview:bgScrollView];
     
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 640, 568)];
-    imageView.image = [UIImage imageNamed:@"bg.jpg"];
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(-50, 0, 850, 568)];
+    imageView.image = [UIImage imageNamed:@"bg4.jpg"];
     [bgScrollView addSubview:imageView];
 }
 
@@ -67,15 +69,15 @@
     
     //UIStoryboard *storyBoard = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] init];
     self.vcToGo1 = [self.storyboard instantiateViewControllerWithIdentifier:@"EWTranslateViewController"];
-    [self.vcToGo1.view setFrame:CGRectMake(320*0, 0, 320, 568)];
+    [self.vcToGo1.view setFrame:CGRectMake(320*0, 0, 320, 488)];
     [mainContentScrollView addSubview:self.vcToGo1.view];
     
     self.vcToGo2 = [self.storyboard instantiateViewControllerWithIdentifier:@"EWInsertViewController"];
-    [self.vcToGo2.view setFrame:CGRectMake(320*1, 0, 320, 568)];
+    [self.vcToGo2.view setFrame:CGRectMake(320*1, 0, 320, 488)];
     [mainContentScrollView addSubview:self.vcToGo2.view];
     
     self.vcToGo3 = [self.storyboard instantiateViewControllerWithIdentifier:@"EWMasterViewController"];
-    [self.vcToGo3.view setFrame:CGRectMake(320*2, 0, 320, 568)];
+    [self.vcToGo3.view setFrame:CGRectMake(320*2, 0, 320, 488)];
     [mainContentScrollView addSubview:self.vcToGo3.view];
     
     

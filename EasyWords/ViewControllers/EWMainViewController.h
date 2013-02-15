@@ -13,5 +13,6 @@
 - (IBAction)testTap:(id)sender;
 @property (weak, nonatomic) IBOutlet UIView *bgView;
 @property (weak, nonatomic) IBOutlet UIView *contentView;
+@property (weak, nonatomic) IBOutlet UIView *bottomBarView;
 
 @end

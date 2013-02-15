@@ -39,7 +39,14 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self.view endEditing:YES];
+}
+
 - (IBAction)saveButtonDidTapped:(id)sender {
+    [self.view endEditing:YES];
+    
     // QUANG
     PFObject *person = [PFObject objectWithClassName:@"Person"];
     
