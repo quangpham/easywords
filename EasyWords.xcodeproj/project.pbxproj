@@ -28,6 +28,7 @@
 		3005C24616C528A900117B19 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3005C24516C528A900117B19 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		3005C24816C528AE00117B19 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3005C24716C528AE00117B19 /* StoreKit.framework */; };
 		3005C24A16C528B500117B19 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3005C24916C528B500117B19 /* SystemConfiguration.framework */; };
+		301165DD16CE3EE20001D2BB /* EWMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 301165DB16CE3EE20001D2BB /* EWMasterViewController.m */; };
 		303419EB16CA7CF400FA2CF2 /* EWInsertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 303419E616CA7CF400FA2CF2 /* EWInsertViewController.m */; };
 		303419ED16CA7CF400FA2CF2 /* EWTranslateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 303419EA16CA7CF400FA2CF2 /* EWTranslateViewController.m */; };
 		303419F416CA7D0900FA2CF2 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 303419EF16CA7D0900FA2CF2 /* Default-568h@2x.png */; };
@@ -69,6 +70,8 @@
 		3005C24516C528A900117B19 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		3005C24716C528AE00117B19 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		3005C24916C528B500117B19 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		301165DB16CE3EE20001D2BB /* EWMasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EWMasterViewController.m; sourceTree = "<group>"; };
+		301165DC16CE3EE20001D2BB /* EWMasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EWMasterViewController.h; sourceTree = "<group>"; };
 		303419E516CA7CF400FA2CF2 /* EWInsertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EWInsertViewController.h; sourceTree = "<group>"; };
 		303419E616CA7CF400FA2CF2 /* EWInsertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EWInsertViewController.m; sourceTree = "<group>"; };
 		303419E916CA7CF400FA2CF2 /* EWTranslateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EWTranslateViewController.h; sourceTree = "<group>"; };
@@ -190,6 +193,8 @@
 		303419E416CA7CF400FA2CF2 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				301165DB16CE3EE20001D2BB /* EWMasterViewController.m */,
+				301165DC16CE3EE20001D2BB /* EWMasterViewController.h */,
 				303419E516CA7CF400FA2CF2 /* EWInsertViewController.h */,
 				303419E616CA7CF400FA2CF2 /* EWInsertViewController.m */,
 				303419E916CA7CF400FA2CF2 /* EWTranslateViewController.h */,
@@ -349,6 +354,7 @@
 				308E825616CBF3B6001E1A47 /* NSObject+YMOptionsAndDefaults.m in Sources */,
 				308E825716CBF3B6001E1A47 /* UIViewController+KNSemiModal.m in Sources */,
 				3050280116CD604C0043066E /* EWMainViewController.m in Sources */,
+				301165DD16CE3EE20001D2BB /* EWMasterViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
